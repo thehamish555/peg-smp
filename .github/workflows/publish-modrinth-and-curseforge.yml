@@ -251,6 +251,5 @@ jobs:
           version: ${{ steps.cf-meta.outputs.version }}
           version-type: ${{ github.event.inputs.channel || 'release' }}
           changelog: ${{ steps.changelog.outputs.body }}
-          changelog-type: markdown
           loaders: ${{ steps.cf-meta.outputs.loaders }}
           game-versions: ${{ steps.cf-meta.outputs.mc_version }}

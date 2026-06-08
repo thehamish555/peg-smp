@@ -1,0 +1,13 @@
+name = "👤 So No Head? – Hide Helmets, Stay Protected"
+filename = "§d§lSo No Headʔ§8§o §8v1.1.0.zip"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "ffaeb7fa6148c1208a780a3e79ea3cdceff45554"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 7245508
+project-id = 1272992

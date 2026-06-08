@@ -1,0 +1,13 @@
+name = "Fresh Animations: Quivers"
+filename = "FA+Quivers-v2.2.zip"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "b6307c2c7c0196298ccf53afff844d068e9805ac"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 7674520
+project-id = 1346077

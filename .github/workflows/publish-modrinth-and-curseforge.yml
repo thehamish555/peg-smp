@@ -1,0 +1,256 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Publish Modpack
+#
+# Exports and publishes both platform packs on every push to main:
+#   modrinth/   → .mrpack  → Modrinth
+#   curseforge/ → .zip     → CurseForge
+#
+# Required setup (one-time):
+#   Secrets  →  Settings → Secrets and variables → Actions → Secrets
+#     MODRINTH_TOKEN      PAT from https://modrinth.com/settings/pats
+#                         (scope: "Create versions")
+#     CF_API_TOKEN        API token from https://console.curseforge.com/
+#                         (account → API Keys)
+#
+#   Variables →  Settings → Secrets and variables → Actions → Variables
+#     MODRINTH_PROJECT_ID 8-char ID — https://modrinth.com/modpack/peg-smp ⋮ → Copy ID
+#     CF_PROJECT_ID       Numeric ID — CurseForge project page → About → Project ID
+#
+# Version is driven by the "version" field in each pack's pack.toml.
+# Pushing the same version twice will fail on both platforms — bump before merging.
+# ─────────────────────────────────────────────────────────────────────────────
+
+name: Publish Modpack
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      channel:
+        description: Release channel
+        type: choice
+        default: release
+        options: [release, beta, alpha]
+
+concurrency:
+  group: publish-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    name: Build & Publish
+    runs-on: ubuntu-latest
+
+    steps:
+      # ── 1. Source ──────────────────────────────────────────────────────────
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # ── 2. packwiz ─────────────────────────────────────────────────────────
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: stable
+          cache: false
+
+      - name: Install packwiz
+        run: go install github.com/packwiz/packwiz@latest
+
+      # ── 3. Changelog (shared) ──────────────────────────────────────────────
+      # Generated once and reused for both platform releases.
+      - name: Generate changelog
+        id: changelog
+        run: |
+          PREV_TAG=$(git tag --sort=-version:refname | head -n1)
+
+          if [ -n "$PREV_TAG" ]; then
+            RANGE="$PREV_TAG..HEAD"
+            echo "Changelog since tag: $PREV_TAG"
+          else
+            RANGE="HEAD~10..HEAD"
+            echo "No previous tag — using last 10 commits"
+          fi
+
+          LOG=$(git log "$RANGE" --no-merges \
+                    --pretty=format:"- %s (%h)" 2>/dev/null | head -50)
+
+          if [ -z "$LOG" ]; then
+            LOG=$(git log -1 --pretty=format:"- %s (%h)")
+          fi
+
+          {
+            echo 'body<<CLEOF'
+            printf '%s\n' "$LOG"
+            echo 'CLEOF'
+          } >> "$GITHUB_OUTPUT"
+
+      # ════════════════════════════════════════════════════════════════════════
+      # MODRINTH
+      # ════════════════════════════════════════════════════════════════════════
+
+      # ── 4. Parse modrinth/pack.toml ────────────────────────────────────────
+      - name: Parse Modrinth pack metadata
+        id: mr-meta
+        run: |
+          python3 - <<'PYEOF'
+          import json, os, sys, tomllib
+
+          PACK_PATH = "modrinth/pack.toml"
+          KNOWN_LOADERS = ("fabric", "forge", "neoforge", "quilt", "liteloader")
+
+          try:
+              with open(PACK_PATH, "rb") as f:
+                  pack = tomllib.load(f)
+          except FileNotFoundError:
+              print(f"::error file={PACK_PATH}::pack.toml not found", flush=True)
+              sys.exit(1)
+
+          errors = []
+          version    = pack.get("version", "")
+          name       = pack.get("name", "Modpack")
+          mc_version = pack.get("versions", {}).get("minecraft", "")
+          loaders    = [l for l in KNOWN_LOADERS if l in pack.get("versions", {})]
+
+          if not version:    errors.append("missing 'version' field")
+          if not mc_version: errors.append("missing versions.minecraft")
+          if not loaders:    errors.append(f"no recognised loader ({', '.join(KNOWN_LOADERS)})")
+
+          for err in errors:
+              print(f"::error file={PACK_PATH}::{err}", flush=True)
+          if errors:
+              sys.exit(1)
+
+          with open(os.environ["GITHUB_OUTPUT"], "a") as fh:
+              fh.write(f"version={version}\n")
+              fh.write(f"name={name}\n")
+              fh.write(f"mc_version={mc_version}\n")
+              fh.write(f"loaders={json.dumps(loaders)}\n")
+
+          print(f"[Modrinth] {name} {version} | MC {mc_version} | {', '.join(loaders)}")
+          PYEOF
+
+      # ── 5. Export .mrpack ──────────────────────────────────────────────────
+      - name: Export mrpack
+        id: mr-export
+        working-directory: modrinth
+        run: |
+          packwiz modrinth export
+
+          MRPACK=$(ls *.mrpack 2>/dev/null | head -n1)
+          if [ -z "$MRPACK" ]; then
+            echo "::error::packwiz produced no .mrpack file"
+            exit 1
+          fi
+
+          echo "file=$MRPACK" >> "$GITHUB_OUTPUT"
+          echo "Exported: $MRPACK ($(du -sh "$MRPACK" | cut -f1))"
+
+      - name: Upload mrpack artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.mr-meta.outputs.name }}-${{ steps.mr-meta.outputs.version }}-modrinth
+          path: modrinth/${{ steps.mr-export.outputs.file }}
+          retention-days: 30
+
+      # ── 6. Publish to Modrinth ─────────────────────────────────────────────
+      - name: Publish to Modrinth
+        uses: cloudnode-pro/modrinth-publish@v2
+        with:
+          token: ${{ secrets.MODRINTH_TOKEN }}
+          project: ${{ vars.MODRINTH_PROJECT_ID }}
+          version: ${{ steps.mr-meta.outputs.version }}
+          name: ${{ steps.mr-meta.outputs.name }} ${{ steps.mr-meta.outputs.version }}
+          channel: ${{ github.event.inputs.channel || 'release' }}
+          loaders: ${{ steps.mr-meta.outputs.loaders }}
+          game-versions: ${{ steps.mr-meta.outputs.mc_version }}
+          files: modrinth/${{ steps.mr-export.outputs.file }}
+          changelog: ${{ steps.changelog.outputs.body }}
+
+      # ════════════════════════════════════════════════════════════════════════
+      # CURSEFORGE
+      # ════════════════════════════════════════════════════════════════════════
+
+      # ── 7. Parse curseforge/pack.toml ──────────────────────────────────────
+      - name: Parse CurseForge pack metadata
+        id: cf-meta
+        run: |
+          python3 - <<'PYEOF'
+          import json, os, sys, tomllib
+
+          PACK_PATH = "curseforge/pack.toml"
+          KNOWN_LOADERS = ("fabric", "forge", "neoforge", "quilt", "liteloader")
+
+          try:
+              with open(PACK_PATH, "rb") as f:
+                  pack = tomllib.load(f)
+          except FileNotFoundError:
+              print(f"::error file={PACK_PATH}::pack.toml not found", flush=True)
+              sys.exit(1)
+
+          errors = []
+          version    = pack.get("version", "")
+          name       = pack.get("name", "Modpack")
+          mc_version = pack.get("versions", {}).get("minecraft", "")
+          loaders    = [l for l in KNOWN_LOADERS if l in pack.get("versions", {})]
+
+          if not version:    errors.append("missing 'version' field")
+          if not mc_version: errors.append("missing versions.minecraft")
+          if not loaders:    errors.append(f"no recognised loader ({', '.join(KNOWN_LOADERS)})")
+
+          for err in errors:
+              print(f"::error file={PACK_PATH}::{err}", flush=True)
+          if errors:
+              sys.exit(1)
+
+          with open(os.environ["GITHUB_OUTPUT"], "a") as fh:
+              fh.write(f"version={version}\n")
+              fh.write(f"name={name}\n")
+              fh.write(f"mc_version={mc_version}\n")
+              fh.write(f"loaders={json.dumps(loaders)}\n")
+
+          print(f"[CurseForge] {name} {version} | MC {mc_version} | {', '.join(loaders)}")
+          PYEOF
+
+      # ── 8. Export CurseForge .zip ──────────────────────────────────────────
+      - name: Export CurseForge zip
+        id: cf-export
+        working-directory: curseforge
+        run: |
+          packwiz curseforge export
+
+          ZIP=$(ls *.zip 2>/dev/null | head -n1)
+          if [ -z "$ZIP" ]; then
+            echo "::error::packwiz produced no .zip file"
+            exit 1
+          fi
+
+          echo "file=$ZIP" >> "$GITHUB_OUTPUT"
+          echo "Exported: $ZIP ($(du -sh "$ZIP" | cut -f1))"
+
+      - name: Upload CurseForge artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.cf-meta.outputs.name }}-${{ steps.cf-meta.outputs.version }}-curseforge
+          path: curseforge/${{ steps.cf-export.outputs.file }}
+          retention-days: 30
+
+      # ── 9. Publish to CurseForge ───────────────────────────────────────────
+      - name: Publish to CurseForge
+        uses: Kir-Antipov/mc-publish@v3.3
+        with:
+          curseforge-id: ${{ vars.CF_PROJECT_ID }}
+          curseforge-token: ${{ secrets.CF_API_TOKEN }}
+          files: curseforge/${{ steps.cf-export.outputs.file }}
+          name: ${{ steps.cf-meta.outputs.name }} ${{ steps.cf-meta.outputs.version }}
+          version: ${{ steps.cf-meta.outputs.version }}
+          version-type: ${{ github.event.inputs.channel || 'release' }}
+          changelog: ${{ steps.changelog.outputs.body }}
+          changelog-type: markdown
+          loaders: ${{ steps.cf-meta.outputs.loaders }}
+          game-versions: ${{ steps.cf-meta.outputs.mc_version }}

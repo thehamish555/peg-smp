@@ -1,0 +1,13 @@
+name = "No Cave Sounds"
+filename = "No Cave Sounds.zip"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "f55c14564a18727cee9e099384d94874640da4d9"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 7858217
+project-id = 1273815

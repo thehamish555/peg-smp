@@ -1,0 +1,13 @@
+name = "Fancy Door Animations: Hold My Doors"
+filename = "fancy-door-anim-1.4.0.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "361beb3696a4f5bc47b6d05875dd14c21395d43f"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 7901796
+project-id = 1357699

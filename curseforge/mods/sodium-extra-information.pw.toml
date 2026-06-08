@@ -1,0 +1,13 @@
+name = "Sodium Extra Information"
+filename = "SodiumExtraInformation-fabric-2.9.0.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "32400132009b251017bed03e1ac883ae8707ad88"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 8018881
+project-id = 1073022

@@ -1,0 +1,13 @@
+name = "Fresh Animations: Classic Horses"
+filename = "FA+Classic_Horses-v1.6.zip"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "8f55345624f3761187d75704cbc84796897e9618"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 8132056
+project-id = 1345706

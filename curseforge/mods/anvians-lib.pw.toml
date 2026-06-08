@@ -1,0 +1,13 @@
+name = "Anvian's Lib"
+filename = "anvianslib-fabric-26.1-1.4.1.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "0eb5ea8b7e4df2e63e01e344e8a733c572ad548a"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 8056200
+project-id = 1168509

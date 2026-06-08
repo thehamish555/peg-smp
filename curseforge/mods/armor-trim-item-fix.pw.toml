@@ -1,0 +1,13 @@
+name = "Armor Trim Item Fix"
+filename = "ArmorTrimItemFix-fabric-26.1-2.1.5.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "a8dfc8d334c2bc43a5d8874abc7120973ffbf725"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 8041633
+project-id = 895603

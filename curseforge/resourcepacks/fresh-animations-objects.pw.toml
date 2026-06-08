@@ -1,0 +1,13 @@
+name = "Fresh Animations: Objects"
+filename = "FA+Objects-v2.1.1.zip"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "dd7adf0e8bdf4d9e4509476156b6d3b2687635ca"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 8132143
+project-id = 1345471

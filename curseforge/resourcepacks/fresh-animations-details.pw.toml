@@ -1,0 +1,13 @@
+name = "Fresh Animations: Details"
+filename = "FA+Details-v2.3.zip"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "150320584ccb0f7632b3fe81a7fe97101293c747"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 7999513
+project-id = 1346132

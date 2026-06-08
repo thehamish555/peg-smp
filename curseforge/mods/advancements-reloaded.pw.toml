@@ -1,0 +1,13 @@
+name = "Advancements Reloaded"
+filename = "advancements_reloaded-0.13.1-fabric-26.1.2.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "4964fb280e7c589db2bce905bed37707305b9168"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 7935716
+project-id = 1113876

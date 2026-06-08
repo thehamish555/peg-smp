@@ -1,0 +1,13 @@
+name = "TakeItOut (Take It Out)"
+filename = "takeitout-1.1.24-26.1.2.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "c9875916eb4e120e3e2f727a10149ea4e03ea6b0"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 8209583
+project-id = 1095860

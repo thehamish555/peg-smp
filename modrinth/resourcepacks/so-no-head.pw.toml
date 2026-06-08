@@ -1,0 +1,13 @@
+name = "👤 So No Head? – Hide Helmets Stay Protected"
+filename = "§d§lSo No Headʔ§8§o §8v1.1.0.zip"
+side = "client"
+
+[download]
+url = "https://cdn.modrinth.com/data/YS0C15RL/versions/EBLyBGtN/%C2%A7d%C2%A7lSo%20No%20Head%CA%94%C2%A78%C2%A7o%20%C2%A78v1.1.0.zip"
+hash-format = "sha512"
+hash = "9c19f6002d0afc376915c9add7c9f78d72811796f25a01e5c1c9152b1c2da25b5e99add47a87d71d8676dba249f3ccae41951d63d2d28f1edc14e2cfc133b563"
+
+[update]
+[update.modrinth]
+mod-id = "YS0C15RL"
+version = "EBLyBGtN"

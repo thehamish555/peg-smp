@@ -1,0 +1,13 @@
+name = "Fancy Door Animations - Hold My Doors"
+filename = "fancy-door-anim-1.4.0.jar"
+side = "client"
+
+[download]
+url = "https://cdn.modrinth.com/data/gQIpdGQl/versions/4fTVTEAu/fancy-door-anim-1.4.0.jar"
+hash-format = "sha512"
+hash = "7a5d8659b10bf8d9167fa4d53e82f4b263960546f0eff26b6636635d5b2dd46867d36a9c64553601d9bfce02ae64e934909a74c016372dfdec646c8faa48e2e4"
+
+[update]
+[update.modrinth]
+mod-id = "gQIpdGQl"
+version = "4fTVTEAu"

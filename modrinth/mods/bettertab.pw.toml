@@ -1,0 +1,13 @@
+name = "Better Tab"
+filename = "bettertab-2.2.0+26.1.2.jar"
+side = "client"
+
+[download]
+url = "https://cdn.modrinth.com/data/OSMu7zRz/versions/trYHo6So/bettertab-2.2.0%2B26.1.2.jar"
+hash-format = "sha512"
+hash = "a92e455276e04de297af05b159fae66d0dff58839a7a895672e07d3bef84696b133d253a7e59143e14387ef681d820c2e8b26bb3915d0c6c05ca9de9fd4a1b25"
+
+[update]
+[update.modrinth]
+mod-id = "OSMu7zRz"
+version = "trYHo6So"

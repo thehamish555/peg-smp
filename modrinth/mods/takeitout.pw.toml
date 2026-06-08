@@ -1,0 +1,13 @@
+name = "Take It Out — Minecraft Mod (Shulker Picking + Easy Place)"
+filename = "takeitout-1.1.24-26.1.2.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/usAyJ0Wy/versions/19iH6m55/takeitout-1.1.24-26.1.2.jar"
+hash-format = "sha512"
+hash = "c25d854808cce31bea616cedb2c85f731d4944515526f39612170862aee0d5722c21aacf6f33d5f8e3aa027204a1e42f3055403b0ee69976e4c2c9d15f723eb2"
+
+[update]
+[update.modrinth]
+mod-id = "usAyJ0Wy"
+version = "19iH6m55"

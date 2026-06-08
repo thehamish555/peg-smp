@@ -1,0 +1,186 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Publish to Modrinth
+#
+# Reads the packwiz modpack in ./modrinth/, exports it to .mrpack, and uploads
+# a new version to Modrinth on every push to main.
+#
+# Required setup (one-time):
+#   Secrets  →  Settings → Secrets and variables → Actions → Secrets
+#     MODRINTH_TOKEN      Personal access token from https://modrinth.com/settings/pats
+#                         (scope: "Create versions")
+#
+#   Variables →  Settings → Secrets and variables → Actions → Variables
+#     MODRINTH_PROJECT_ID 8-char project ID — on https://modrinth.com/modpack/peg-smp
+#                         click ⋮ → "Copy ID"  (NOT the slug)
+#
+# The version published equals the "version" field in modrinth/pack.toml.
+# Pushing the same version twice will fail — bump pack.toml before merging.
+# ─────────────────────────────────────────────────────────────────────────────
+
+name: Publish to Modrinth
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      channel:
+        description: Release channel
+        type: choice
+        default: release
+        options: [release, beta, alpha]
+
+# Prevent concurrent publish runs on the same branch
+concurrency:
+  group: modrinth-publish-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    name: Build & Publish
+    runs-on: ubuntu-latest
+
+    steps:
+      # ── 1. Source ──────────────────────────────────────────────────────────
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # full history needed for changelog generation
+
+      # ── 2. packwiz ─────────────────────────────────────────────────────────
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: stable
+          cache: false
+
+      - name: Install packwiz
+        run: go install github.com/packwiz/packwiz@latest
+
+      # ── 3. Parse pack.toml ─────────────────────────────────────────────────
+      # Extracts: name, version, Minecraft version, loader(s).
+      # Fails fast with a clear error if any required field is missing.
+      - name: Parse pack metadata
+        id: meta
+        run: |
+          python3 - <<'PYEOF'
+          import json, os, sys, tomllib
+
+          PACK_PATH = "modrinth/pack.toml"
+          KNOWN_LOADERS = ("fabric", "forge", "neoforge", "quilt", "liteloader")
+
+          try:
+              with open(PACK_PATH, "rb") as f:
+                  pack = tomllib.load(f)
+          except FileNotFoundError:
+              print(f"::error file={PACK_PATH}::pack.toml not found — "
+                    "is your packwiz pack in the modrinth/ directory?", flush=True)
+              sys.exit(1)
+
+          errors = []
+          version    = pack.get("version", "")
+          name       = pack.get("name", "Modpack")
+          mc_version = pack.get("versions", {}).get("minecraft", "")
+          loaders    = [l for l in KNOWN_LOADERS if l in pack.get("versions", {})]
+
+          if not version:
+              errors.append("pack.toml is missing a 'version' field")
+          if not mc_version:
+              errors.append("pack.toml is missing versions.minecraft")
+          if not loaders:
+              errors.append(
+                  f"No recognised loader in pack.toml versions table "
+                  f"(expected one of: {', '.join(KNOWN_LOADERS)})"
+              )
+
+          for err in errors:
+              print(f"::error::{err}", flush=True)
+          if errors:
+              sys.exit(1)
+
+          output = os.environ["GITHUB_OUTPUT"]
+          with open(output, "a") as fh:
+              fh.write(f"version={version}\n")
+              fh.write(f"name={name}\n")
+              fh.write(f"mc_version={mc_version}\n")
+              # JSON array — cloudnode-pro/modrinth-publish accepts this format
+              fh.write(f"loaders={json.dumps(loaders)}\n")
+
+          print(f"Pack:    {name}")
+          print(f"Version: {version}")
+          print(f"MC:      {mc_version}")
+          print(f"Loader:  {', '.join(loaders)}")
+          PYEOF
+
+      # ── 4. Export .mrpack ──────────────────────────────────────────────────
+      - name: Export mrpack
+        id: export
+        working-directory: modrinth
+        run: |
+          packwiz modrinth export
+
+          MRPACK=$(ls *.mrpack 2>/dev/null | head -n1)
+          if [ -z "$MRPACK" ]; then
+            echo "::error::packwiz produced no .mrpack file after export"
+            exit 1
+          fi
+
+          echo "file=$MRPACK" >> "$GITHUB_OUTPUT"
+          echo "Exported: $MRPACK ($(du -sh "$MRPACK" | cut -f1))"
+
+      # ── 5. Artifact ────────────────────────────────────────────────────────
+      # Keep the .mrpack as a downloadable build artifact for 30 days.
+      # Useful for verifying what was shipped without re-running CI.
+      - name: Upload mrpack artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.meta.outputs.name }}-${{ steps.meta.outputs.version }}
+          path: modrinth/${{ steps.export.outputs.file }}
+          retention-days: 30
+
+      # ── 6. Changelog ───────────────────────────────────────────────────────
+      # Collects commit messages since the last git tag (up to 50 lines).
+      # Falls back to the last 10 commits when no tags exist yet.
+      - name: Generate changelog
+        id: changelog
+        run: |
+          PREV_TAG=$(git tag --sort=-version:refname | head -n1)
+
+          if [ -n "$PREV_TAG" ]; then
+            RANGE="$PREV_TAG..HEAD"
+            echo "Changelog since tag: $PREV_TAG"
+          else
+            RANGE="HEAD~10..HEAD"
+            echo "No previous tag found — using last 10 commits"
+          fi
+
+          LOG=$(git log "$RANGE" --no-merges \
+                    --pretty=format:"- %s (%h)" 2>/dev/null | head -50)
+
+          # Fall back to current commit when range yields nothing
+          if [ -z "$LOG" ]; then
+            LOG=$(git log -1 --pretty=format:"- %s (%h)")
+          fi
+
+          {
+            echo 'body<<CLEOF'
+            printf '%s\n' "$LOG"
+            echo 'CLEOF'
+          } >> "$GITHUB_OUTPUT"
+
+      # ── 7. Publish ─────────────────────────────────────────────────────────
+      - name: Publish to Modrinth
+        uses: cloudnode-pro/modrinth-publish@v2
+        with:
+          token: ${{ secrets.MODRINTH_TOKEN }}
+          project: ${{ vars.MODRINTH_PROJECT_ID }}
+          version: ${{ steps.meta.outputs.version }}
+          name: ${{ steps.meta.outputs.name }} ${{ steps.meta.outputs.version }}
+          channel: ${{ github.event.inputs.channel || 'release' }}
+          loaders: ${{ steps.meta.outputs.loaders }}
+          game-versions: ${{ steps.meta.outputs.mc_version }}
+          files: modrinth/${{ steps.export.outputs.file }}
+          changelog: ${{ steps.changelog.outputs.body }}

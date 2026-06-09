@@ -51,11 +51,6 @@ hash = "991da9fa1b6a5a5080e877ed8ef3d093665df353d8076ea548d6583160e8758f"
 metafile = true
 
 [[files]]
-file = "mods/baguettelib.pw.toml"
-hash = "c51d2f3f669eb227aad3e4009253db17b08a0693edc2a119af6fd98f720fc28b"
-metafile = true
-
-[[files]]
 file = "mods/better-mount-hud.pw.toml"
 hash = "156e8688835a92ff6f1a199b77c0f9a16f3d5b15fd9c311cd7dd8a5b1b4d8b4d"
 metafile = true
@@ -358,11 +353,6 @@ metafile = true
 [[files]]
 file = "mods/not-enough-animations.pw.toml"
 hash = "0f1192a7e40192261310314d9fc2d584c701245dd29698ea1a674b3b676e9abd"
-metafile = true
-
-[[files]]
-file = "mods/particular-reforged.pw.toml"
-hash = "2284137227cc5cd17f4e42a07f830436495ff811aaa32eb8f485ae45ec1a8214"
 metafile = true
 
 [[files]]

@@ -1,0 +1,13 @@
+name = "Mace's Origins"
+filename = "maces-origins-updated-2-fabric-1.0.1+mc26.3.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/HAm8Lm3M/versions/Vm4RNbAS/maces-origins-updated-2-fabric-1.0.1%2Bmc26.3.jar"
+hash-format = "sha512"
+hash = "0af555851c06f764496e594fdcb3d44ec09b98b364285f526cf7ff439a0834adac87c2527e85be4810bf96e5b3e84ea860e8562ac96096c170bf646dca74830f"
+
+[update]
+[update.modrinth]
+mod-id = "HAm8Lm3M"
+version = "Vm4RNbAS"

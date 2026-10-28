@@ -1,13 +1,13 @@
 name = "No Cave Ambience"
-filename = "NoCaveAmbience.zip"
+filename = "NoCaveAmbience-Legacy.zip"
 side = "client"
 
 [download]
-url = "https://cdn.modrinth.com/data/5HbyqtEc/versions/HNZqMEih/NoCaveAmbience.zip"
+url = "https://cdn.modrinth.com/data/5HbyqtEc/versions/ANY5n7r8/NoCaveAmbience-Legacy.zip"
 hash-format = "sha512"
-hash = "970967c04f283aefad818c4e9573fd3fe8ea19b3a3fe3b2d6b46caa77b9508db289e4e38eceb780dbc971f7cc1da04446e5f782bd32da7bcda29daaec174aa6a"
+hash = "94ea5949623b537ea41eca19e2d38969ba3178bee0d9a5fe03f70f9861ce17a26248af823b1845e217d4f600c8dac4653c865247479fb61be333e2208d31ad9c"
 
 [update]
 [update.modrinth]
 mod-id = "5HbyqtEc"
-version = "HNZqMEih"
+version = "ANY5n7r8"

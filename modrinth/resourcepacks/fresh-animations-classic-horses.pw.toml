@@ -1,13 +1,13 @@
 name = "Fresh Animations: Classic Horses"
-filename = "FA+Classic_Horses-v1.6.zip"
+filename = "FA+Classic_Horses-v1.6.1.zip"
 side = "client"
 
 [download]
-url = "https://cdn.modrinth.com/data/rrRWRbvm/versions/4KS4cgoO/FA%2BClassic_Horses-v1.6.zip"
+url = "https://cdn.modrinth.com/data/rrRWRbvm/versions/MrN2yz06/FA%2BClassic_Horses-v1.6.1.zip"
 hash-format = "sha512"
-hash = "2275f9e2fd8ca022c369d86f5d7ef5463207daad5a8551113b8d9a249c97f4527e41e7ce628367c720b4892c718352ba871b7394e5f2d5c8f33c0d9cb68e5b5d"
+hash = "cf6bb9091e0c55f6d42ac8664ad5bfda2128315c0dc62f2e701f91cd3e81d006408e1ea9ae2a748dfd42d5bf33a0f2e8400bcb90a9ba82da29a0c9db30adca98"
 
 [update]
 [update.modrinth]
 mod-id = "rrRWRbvm"
-version = "4KS4cgoO"
+version = "MrN2yz06"

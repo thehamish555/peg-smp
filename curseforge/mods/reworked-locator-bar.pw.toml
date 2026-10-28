@@ -1,13 +1,13 @@
 name = "Locator Bar"
-filename = "LocatorBar-fabric-1.1.2+26.1.x.jar"
+filename = "LocatorBar-fabric-1.2.4+26.3.x.jar"
 side = "both"
 
 [download]
 hash-format = "sha1"
-hash = "b28e63270d7bfa536dc93b928dc24941d8ea0c57"
+hash = "81d0c44a72df6a1a839a2dbab43982f7aba83385"
 mode = "metadata:curseforge"
 
 [update]
 [update.curseforge]
-file-id = 8187704
+file-id = 8963941
 project-id = 1523749

@@ -110,6 +110,21 @@ hash = "537b6f78693819e0fc20f68a71a2c483cb981203e5bbfc936e56784b9a3362e1"
 metafile = true
 
 [[files]]
+file = "mods/easy-anvils.pw.toml"
+hash = "f44fc867e4aa9c167d6eb9cf1bc17d2b59b13e274e15a7a191254dfff2dac045"
+metafile = true
+
+[[files]]
+file = "mods/easy-magic.pw.toml"
+hash = "31ecf58fee64d19e37817df17acf97d9dee32f2b29cc852ee7bb146581333e8a"
+metafile = true
+
+[[files]]
+file = "mods/elytra-contrails.pw.toml"
+hash = "31d9b81d7788c5b09892fbb766a66e04be0e2de1a837730c0af7c15cc7b7a110"
+metafile = true
+
+[[files]]
 file = "mods/enchantment-level-cap-indicator.pw.toml"
 hash = "93e80c11c98940d4541058daf2fc2a1f0ec7e44e1676fb343a68de97e45d458b"
 metafile = true
@@ -147,6 +162,11 @@ metafile = true
 [[files]]
 file = "mods/ferritecore-fabric.pw.toml"
 hash = "9ca046d9f6700d5af540f3d557eb356d5c8c5bc1007e6fe957168f7d4638c3c4"
+metafile = true
+
+[[files]]
+file = "mods/forge-config-api-port.pw.toml"
+hash = "d26ecb477a804428f5077647167c384c7df1a5cb033cca550afde1da7cf42013"
 metafile = true
 
 [[files]]
@@ -230,6 +250,11 @@ hash = "99501933fa4c54c3777d2388c313a4f9871eff0a58e9d106d02ca2db07b4c5d9"
 metafile = true
 
 [[files]]
+file = "mods/puzzles-lib.pw.toml"
+hash = "61048c18aa68edaa3ce3429d4846836860560ae175cb9a26317331714c6bd1e9"
+metafile = true
+
+[[files]]
 file = "mods/reeses-sodium-options.pw.toml"
 hash = "7a48224c7585d83af423d7e2052be89f07de16909afffb85a590019162981904"
 metafile = true
@@ -282,6 +307,11 @@ metafile = true
 [[files]]
 file = "mods/variants-cit.pw.toml"
 hash = "f2c462734dad16ffe87f4ae557dbe4a78f7f10760f71f4def4ca98ec8ffb4cef"
+metafile = true
+
+[[files]]
+file = "mods/visual-workbench.pw.toml"
+hash = "8ecc13a2c45de69daa2e9fd1eab9fad85236b39bea563a434458ed9af0e0a0a8"
 metafile = true
 
 [[files]]

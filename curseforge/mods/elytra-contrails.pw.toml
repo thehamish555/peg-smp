@@ -1,0 +1,13 @@
+name = "Elytra Contrails"
+filename = "elytratrails-1.6.5-26.3.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "8287b7adb160bd3deec0390735093744423f33aa"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 8977355
+project-id = 1462041

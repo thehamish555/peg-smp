@@ -1,13 +1,13 @@
 name = "Fresh Animations: Details"
-filename = "FA+Details-v2.3.zip"
+filename = "FA+Details-v2.4.zip"
 side = "client"
 
 [download]
-url = "https://cdn.modrinth.com/data/lctgpCsu/versions/qZUQ2JxK/FA%2BDetails-v2.3.zip"
+url = "https://cdn.modrinth.com/data/lctgpCsu/versions/XM8VyQLk/FA%2BDetails-v2.4.zip"
 hash-format = "sha512"
-hash = "01b76ec5c66710bd035f2805de668db4745b866744093f4b9c8517b28e70c7dc1cf3935a7f5acbb63294874e466f96360e8fe4ce9abdbc0742ee355fd05af38b"
+hash = "d8a6c2e0ac272e2f4773ed962301ece0cda73136d89a9788eff4dae74979471d29b7dee4073e8169644c4c2017f7b3286dab538171f9e8e2c19e708aa7df8d3d"
 
 [update]
 [update.modrinth]
 mod-id = "lctgpCsu"
-version = "qZUQ2JxK"
+version = "XM8VyQLk"

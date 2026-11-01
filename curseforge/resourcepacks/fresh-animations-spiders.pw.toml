@@ -1,13 +1,13 @@
 name = "Fresh Animations: Spiders"
-filename = "FA+Spiders-v2.2.zip"
+filename = "FA-Spiders-v2.3.1.zip"
 side = "both"
 
 [download]
 hash-format = "sha1"
-hash = "8a673f176a9ab80b703586547d9d527c00878451"
+hash = "10d35fc5cc230c1496aff6e63d36994b97685cf3"
 mode = "metadata:curseforge"
 
 [update]
 [update.curseforge]
-file-id = 7999323
+file-id = 9389428
 project-id = 1346116

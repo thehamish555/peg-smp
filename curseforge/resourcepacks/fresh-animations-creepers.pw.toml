@@ -1,13 +1,13 @@
 name = "Fresh Animations: Creepers"
-filename = "FA+Creepers-v2.1.zip"
+filename = "FA-Creepers-v2.2.zip"
 side = "both"
 
 [download]
 hash-format = "sha1"
-hash = "41ebafbc64e1d90ef1628e3ffb8da7d2dd3b2c6c"
+hash = "c65e34ee299998d39bec9178f6793af1099733fa"
 mode = "metadata:curseforge"
 
 [update]
 [update.curseforge]
-file-id = 7292207
+file-id = 9381472
 project-id = 1346049

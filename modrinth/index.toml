@@ -67,7 +67,7 @@ metafile = true
 
 [[files]]
 file = "mods/collective.pw.toml"
-hash = "bb38c4ae112796466446767f7fb4143c82a8af4c4955c5b94003059e394806ff"
+hash = "93d567cc41ec1e308f7484f230488f89092742cf3fc94f7e43dc1a3af0fc3e02"
 metafile = true
 
 [[files]]
@@ -177,12 +177,7 @@ metafile = true
 
 [[files]]
 file = "mods/jei.pw.toml"
-hash = "87314af4dc64be3a65ebc482621138efed143ac635105343db04b4b46e1087d0"
-metafile = true
-
-[[files]]
-file = "mods/journeymap.pw.toml"
-hash = "76468dc86541ea6241ce7a3364d6f87cae3126f9009d60469083b43458f75d14"
+hash = "ceed3907704f3478bda90a96f62e642fa6e2b0817ae6ba5d93cf0ca91d636342"
 metafile = true
 
 [[files]]
@@ -266,6 +261,11 @@ hash = "cb2049e12683e3ba2106acfda8dc77d4450d6aeed35ded5a2a89d1c89c8aa182"
 metafile = true
 
 [[files]]
+file = "mods/shulkerboxtooltip.pw.toml"
+hash = "5d79a93f9dfd1fe63ebbe276056b9b7830f2480c3ffab35db5285d4b3c8a6014"
+metafile = true
+
+[[files]]
 file = "mods/simple-voice-chat.pw.toml"
 hash = "6865b44c30baa85a87c344ac9d3e0eb0135e90b26a90a6dc28bf79a363170cf9"
 metafile = true
@@ -321,6 +321,16 @@ hash = "d9d97625ca8e65c474f373012b72c02dc6b8bce909d5acc91561bc4e3d0cb705"
 metafile = true
 
 [[files]]
+file = "mods/xaeros-minimap.pw.toml"
+hash = "14e96b12f10a1f2920cdcec89b4d16e452bec4689e117b38b4c0f759145aaf7f"
+metafile = true
+
+[[files]]
+file = "mods/xaeros-world-map.pw.toml"
+hash = "cbb9808546870ecb0a7befebb14df0a11383b1aeafd175a77a0fc4caee44c6f2"
+metafile = true
+
+[[files]]
 file = "mods/yacl.pw.toml"
 hash = "7b82bfcde20d2ac0fb158c003caf5288523272ca462f519864ee424912e4e4dd"
 metafile = true
@@ -342,22 +352,22 @@ metafile = true
 
 [[files]]
 file = "resourcepacks/fresh-animations-classic-horses.pw.toml"
-hash = "ba41280e784ab5121f929c1091fda84ed7160a76ab2da9ff49ca2604c3418abf"
+hash = "990cd013430473a15872e0e83b4397564a86fa957bff9bfaf1e6cdc37810d5c1"
 metafile = true
 
 [[files]]
 file = "resourcepacks/fresh-animations-creepers.pw.toml"
-hash = "7913ccc031786220b0d2226389d2f034369183572e7071e5d7612b442359f130"
+hash = "accb752078a352a2d3f0f8c879f539b7af52f9c517b5728b5aa73cc7538389cf"
 metafile = true
 
 [[files]]
 file = "resourcepacks/fresh-animations-details.pw.toml"
-hash = "76fac76ecfa8369e351fd6892174112bbd46f1806a79d569d239e171d6b21bf5"
+hash = "aeefba4ef6d28313e1ee1de6f7e89fdb074374f712960d9e353445568474f18b"
 metafile = true
 
 [[files]]
 file = "resourcepacks/fresh-animations-emissive.pw.toml"
-hash = "de81d004ae049a08aab49d57db3ed5f5b659bd28b070bce0be4c520527f51b4b"
+hash = "7457f251fe959ccc219f811ae42a11b1b5b156f518d18f3bb0191d84c278c8f2"
 metafile = true
 
 [[files]]
@@ -367,17 +377,17 @@ metafile = true
 
 [[files]]
 file = "resourcepacks/fresh-animations-quivers.pw.toml"
-hash = "a516f14bbde45f128086050dd497a5747bfc42e4b2dbe4bb8150c9a126a30eb7"
+hash = "6bad5be14b889798ec8bb2c42661bd32ce43417accebdb4538d7ec4d34e3834a"
 metafile = true
 
 [[files]]
 file = "resourcepacks/fresh-animations-spiders.pw.toml"
-hash = "929ce27b339e53bbd7828bd0a311b627428858713a6158d3e9d805cd6df2c2d2"
+hash = "81c9489a78cd19f75ae5da20f308392cfbdaedfb29d57551c8613f6fcac7fdb5"
 metafile = true
 
 [[files]]
 file = "resourcepacks/fresh-animations.pw.toml"
-hash = "435a3f840613486ed00c68c6eea16324083b9a5a745503b22942d6b53c06b5ed"
+hash = "817c682d213e4d8ef43a4b1c674c17970b2368dee45b793f53e009f4f4a95384"
 metafile = true
 
 [[files]]

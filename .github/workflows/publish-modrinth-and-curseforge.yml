@@ -63,31 +63,29 @@ jobs:
         run: go install github.com/packwiz/packwiz@latest
 
       # ── 3. Changelog (shared) ──────────────────────────────────────────────
-      # Generated once and reused for both platform releases.
+      # Uses the markdown body of the commit being published.
+      # Falls back to the subject line if the commit has no body.
       - name: Generate changelog
         id: changelog
         run: |
-          PREV_TAG=$(git tag --sort=-version:refname | head -n1)
+          SUBJECT=$(git log -1 --pretty=format:%s)
 
-          if [ -n "$PREV_TAG" ]; then
-            RANGE="$PREV_TAG..HEAD"
-            echo "Changelog since tag: $PREV_TAG"
+          # Body without git trailers (grep wrapped so an empty result doesn't fail the step)
+          BODY=$(git log -1 --pretty=format:%b \
+                   | { grep -viE '^(Co-authored-by|Signed-off-by):' || true; })
+
+          if [ -n "$BODY" ]; then
+            LOG="$BODY"
           else
-            RANGE="HEAD~10..HEAD"
-            echo "No previous tag — using last 10 commits"
+            LOG="$SUBJECT"
           fi
 
-          LOG=$(git log "$RANGE" --no-merges \
-                    --pretty=format:"- %s (%h)" 2>/dev/null | head -50)
-
-          if [ -z "$LOG" ]; then
-            LOG=$(git log -1 --pretty=format:"- %s (%h)")
-          fi
-
+          # Random delimiter so the commit text can't accidentally end the output early
+          DELIM="CL_$(openssl rand -hex 8)"
           {
-            echo 'body<<CLEOF'
+            echo "body<<$DELIM"
             printf '%s\n' "$LOG"
-            echo 'CLEOF'
+            echo "$DELIM"
           } >> "$GITHUB_OUTPUT"
 
       # ════════════════════════════════════════════════════════════════════════

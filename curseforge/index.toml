@@ -90,6 +90,11 @@ hash = "2e48ced68c7efdf981a8b67479121955b29e1acedec94c9652ae89c5798f9afe"
 metafile = true
 
 [[files]]
+file = "mods/controlling.pw.toml"
+hash = "7cfe72458336a574a9a7821d685e5d2f6c710d9e075450ff7fc09934d858ae04"
+metafile = true
+
+[[files]]
 file = "mods/craterlib.pw.toml"
 hash = "d7058513a8211db0fc9845856bff0c259153b8cf7f28246bfb524cebcc89ab92"
 metafile = true
@@ -262,6 +267,11 @@ metafile = true
 [[files]]
 file = "mods/reworked-locator-bar.pw.toml"
 hash = "7dd0bd3966271d1f8848805af088e76ac7a07ed1eadcdcc893b50723a2e014e8"
+metafile = true
+
+[[files]]
+file = "mods/searchables.pw.toml"
+hash = "b9161ab29e9485469ce2ab82ecde15c292378eb327783ba036769ff5867cb7f1"
 metafile = true
 
 [[files]]

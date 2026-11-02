@@ -76,6 +76,11 @@ hash = "aad07f6496bbf478116eaa0e82fa7fbdd022ca755b392029193e1090d76716b3"
 metafile = true
 
 [[files]]
+file = "mods/controlling.pw.toml"
+hash = "2fa46b8df6c6de59e8d793d1f3fe6de20f590ad8711b826a2a981680bc9aceb3"
+metafile = true
+
+[[files]]
 file = "mods/craterlib.pw.toml"
 hash = "ab42982b2ed1091024ff5ffa24fdb434f272ff069468b7ab8bb6a6b9cbbb838a"
 metafile = true
@@ -258,6 +263,11 @@ metafile = true
 [[files]]
 file = "mods/resourcify.pw.toml"
 hash = "cb2049e12683e3ba2106acfda8dc77d4450d6aeed35ded5a2a89d1c89c8aa182"
+metafile = true
+
+[[files]]
+file = "mods/searchables.pw.toml"
+hash = "91f6defb56c64900bd1ad69147acf1c151b5b372b3ec405933d92ef9308617ae"
 metafile = true
 
 [[files]]

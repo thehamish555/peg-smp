@@ -180,6 +180,11 @@ hash = "bfaadeb026754cf904251517abe9ca6b7f9648aaf3e4e0edf8d8fa7de9d44968"
 metafile = true
 
 [[files]]
+file = "mods/iceberg-fabric.pw.toml"
+hash = "527c3ed32342eb6ac5ad8560fdf757fdce3b2e16efbd16887b5e5ec1c3665faf"
+metafile = true
+
+[[files]]
 file = "mods/immediatelyfast.pw.toml"
 hash = "e93d732d605668e5855f4ffa5382774445133e9a5886d52b058d8d18bc9330e8"
 metafile = true
@@ -187,6 +192,11 @@ metafile = true
 [[files]]
 file = "mods/irisshaders.pw.toml"
 hash = "879e9cec45ccde1f2fc02beecda4eaa7b981a795a0ce8fd930af7327f140e9c0"
+metafile = true
+
+[[files]]
+file = "mods/item-highlighter-fabric.pw.toml"
+hash = "4eac2cea2d11375f1eee5569b4ec4ece1d676a882a8f59749b7fb9b100964a30"
 metafile = true
 
 [[files]]
@@ -247,6 +257,11 @@ metafile = true
 [[files]]
 file = "mods/no-chat-reports.pw.toml"
 hash = "99501933fa4c54c3777d2388c313a4f9871eff0a58e9d106d02ca2db07b4c5d9"
+metafile = true
+
+[[files]]
+file = "mods/pickup-notifications.pw.toml"
+hash = "9142a2db7a256889d19673d9d32cfbce58d5b27c6cd16ebe3757138e12cab30e"
 metafile = true
 
 [[files]]

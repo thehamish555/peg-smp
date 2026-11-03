@@ -1,0 +1,13 @@
+name = "Pickup Notifications"
+filename = "pickupnotifications-fabric-3.0.1+26.3.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "d82f07c8b3bfa9c5300fa9acb3d4a9818922800b"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 8906583
+project-id = 1292780

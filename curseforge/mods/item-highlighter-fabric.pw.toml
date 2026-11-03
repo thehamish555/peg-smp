@@ -1,0 +1,13 @@
+name = "Item Highlighter [Fabric]"
+filename = "Highlighter-26.3-fabric-1.2.3.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "a6345c4d5687de857eeeeb5eebc37b8c111385c7"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 8948677
+project-id = 541578

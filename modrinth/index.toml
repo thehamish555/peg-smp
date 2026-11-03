@@ -166,6 +166,11 @@ hash = "91ecd94661955cc5d785c021de60311462afac1e0b827e53a7f926c1f7131f99"
 metafile = true
 
 [[files]]
+file = "mods/iceberg.pw.toml"
+hash = "48b9011489f9adc168df5ac842c605e4ed1854a5a5eafcbc16fc181cb818c87e"
+metafile = true
+
+[[files]]
 file = "mods/immediatelyfast.pw.toml"
 hash = "a7f6a1543f41198911a8b1e5e059fa0c8003365ebd6c2314e2dfa0806aff300a"
 metafile = true
@@ -173,6 +178,11 @@ metafile = true
 [[files]]
 file = "mods/iris.pw.toml"
 hash = "3af2426b8d83a5fcda1ff6de2035d53bcff532653c196f2ea6d7647995e45131"
+metafile = true
+
+[[files]]
+file = "mods/item-highlighter.pw.toml"
+hash = "6f96c5694a07f50fac425639a835933ecef01c40957113cb35eb2490b8cbbbd4"
 metafile = true
 
 [[files]]
@@ -251,6 +261,11 @@ hash = "54019b98e621d0ab792d7a2de0f8f2714660e367790b17ffa0ac902344166396"
 metafile = true
 
 [[files]]
+file = "mods/pickup-notifications.pw.toml"
+hash = "7f57f5ead8ad1add28a19f0cbdbdbede14a10e74a6b3e9d8bbd702ae639b9c31"
+metafile = true
+
+[[files]]
 file = "mods/puzzles-lib.pw.toml"
 hash = "1d781325cf9001dddce371f093e679e84e93024d62cc28e367343c4cc1d8ca04"
 metafile = true
@@ -263,6 +278,11 @@ metafile = true
 [[files]]
 file = "mods/resourcify.pw.toml"
 hash = "cb2049e12683e3ba2106acfda8dc77d4450d6aeed35ded5a2a89d1c89c8aa182"
+metafile = true
+
+[[files]]
+file = "mods/scoreboard-overhaul.pw.toml"
+hash = "32aec7d7da70eef6f57c01454e978268f962869eb9f5639d66abd60119f30912"
 metafile = true
 
 [[files]]

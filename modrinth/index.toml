@@ -26,6 +26,11 @@ hash = "8f4143430d51d6010a5e295d8ab5b407d19f121cfffbf617d1692726ab1e205b"
 metafile = true
 
 [[files]]
+file = "mods/auth-me.pw.toml"
+hash = "92fa9c5877187ad9d6ec3a5e051d3c2f3e2fd309893dc2257fa0a86028dbf5c1"
+metafile = true
+
+[[files]]
 file = "mods/axolotl-bucket-fix.pw.toml"
 hash = "991da9fa1b6a5a5080e877ed8ef3d093665df353d8076ea548d6583160e8758f"
 metafile = true

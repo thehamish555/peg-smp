@@ -1,0 +1,13 @@
+name = "Auth Me"
+filename = "authme-fabric-9.3.0+26.3.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "14e35002fa459a8adaf929876aa7f9c774380408"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 8919733
+project-id = 356643

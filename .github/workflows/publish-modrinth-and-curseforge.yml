@@ -75,7 +75,7 @@ jobs:
                    | { grep -viE '^(Co-authored-by|Signed-off-by):' || true; })
 
           if [ -n "$BODY" ]; then
-            LOG="$BODY"
+            LOG=$(printf '%s\n' "$BODY" | sed 's/$/  /')
           else
             LOG="$SUBJECT"
           fi

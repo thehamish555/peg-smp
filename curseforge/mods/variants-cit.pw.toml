@@ -1,13 +1,13 @@
 name = "Variants-CIT"
-filename = "variants-cit-5.7.1+26.3.jar"
+filename = "variants-cit-5.8.0-26.3.jar"
 side = "both"
 
 [download]
 hash-format = "sha1"
-hash = "7ebca7b7b145fb4ee665402a667b38027df14362"
+hash = "3b13f083c3895e0781daa655db4b36465ef6f0ed"
 mode = "metadata:curseforge"
 
 [update]
 [update.curseforge]
-file-id = 9163957
+file-id = 9457417
 project-id = 1248768

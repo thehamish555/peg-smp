@@ -1,13 +1,13 @@
 name = "Variants-CIT"
-filename = "variants-cit-5.7.1+26.3.jar"
+filename = "variants-cit-5.8.0+26.3.jar"
 side = "client"
 
 [download]
-url = "https://cdn.modrinth.com/data/jURjbCaq/versions/h8rgXXWW/variants-cit-5.7.1%2B26.3.jar"
+url = "https://cdn.modrinth.com/data/jURjbCaq/versions/2YK3iOzt/variants-cit-5.8.0%2B26.3.jar"
 hash-format = "sha512"
-hash = "816e5e5e7e5db6185e91634ee27f61815210fc13a78ab3c3913ca8527378329e9d2226b453e9ff9072ea7383410ba8c0f7d2f99e7a5acc1e071d1294cdb80874"
+hash = "119e5ab529af4409eaf6abb9578a08cceb8570bc7939f1098c9c4d786f94fad3cccb21d60647311c671a4e517590c0351386c5e8d51f0bd2d6907e2526c64cbb"
 
 [update]
 [update.modrinth]
 mod-id = "jURjbCaq"
-version = "h8rgXXWW"
+version = "2YK3iOzt"

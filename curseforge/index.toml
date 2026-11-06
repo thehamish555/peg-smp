@@ -86,7 +86,7 @@ metafile = true
 
 [[files]]
 file = "mods/collective.pw.toml"
-hash = "e7b46e56b00a4251e17d347dd407dd947d65bc831723e0e6f9523acfefafb473"
+hash = "84a73c0297140ed12bfcd85b24856c9fa5c450a5772325ef1f1290ee6caafced"
 metafile = true
 
 [[files]]
@@ -146,7 +146,7 @@ metafile = true
 
 [[files]]
 file = "mods/entity-texture-features-fabric.pw.toml"
-hash = "85f38f56cd0dadf6359758c230d9495cf9bf1c943d5585d9999e2ca29ecacecd"
+hash = "3dbfd0df12044b3280acc0fdd74438e8188b3cff8ddc7b01d3575a42eb0942b4"
 metafile = true
 
 [[files]]
@@ -156,7 +156,7 @@ metafile = true
 
 [[files]]
 file = "mods/fabric-api.pw.toml"
-hash = "98ec61a3a75314cde8fe4c015b5e7d92c01890b6172da8f3edb838af96331de8"
+hash = "059ec7f16817386804081b96284d1cce1bab85a29cb6295d045d952d24574596"
 metafile = true
 
 [[files]]
@@ -211,7 +211,7 @@ metafile = true
 
 [[files]]
 file = "mods/jei.pw.toml"
-hash = "8b60171341b9c04908940170b871afe4464a2555d6dc699a727d1c2ded728c20"
+hash = "accc18cf0f8a8d798a11ded4d1d09142bcbd604f1595d2cf56b84c08ebe30abe"
 metafile = true
 
 [[files]]
@@ -235,6 +235,11 @@ hash = "6a1934dda49a64546423c6496b56629b65498529000b7a383bf6bfaa9178eea6"
 metafile = true
 
 [[files]]
+file = "mods/lithostitched.pw.toml"
+hash = "b51f9bf6a8bbd1fecefde9ef9ced083e16bf6295b20c21958c763f8a8a852261"
+metafile = true
+
+[[files]]
 file = "mods/malilib.pw.toml"
 hash = "1e7c6701150b83f607c8fd03c06178d531b454f656db3937b3b4650ed10a6de6"
 metafile = true
@@ -251,7 +256,7 @@ metafile = true
 
 [[files]]
 file = "mods/moreculling.pw.toml"
-hash = "ff15b977981713d110ea997f00b7606fb26ea760ae86324915ff02fed80e3688"
+hash = "55bd7f56388976894e3f57d75048c3772004cf81087bc85e7963eedfaa48a19b"
 metafile = true
 
 [[files]]
@@ -321,12 +326,17 @@ metafile = true
 
 [[files]]
 file = "mods/takeitout.pw.toml"
-hash = "e16479993cf43095a01c26f48c7bd209d177fd8b84d65276c5c213d0c2596a92"
+hash = "e415ef62589b8fce50e1639f28a9a2d7259caf92cf59522090d60278cd7460b7"
 metafile = true
 
 [[files]]
 file = "mods/tcdcommons.pw.toml"
 hash = "f6a0dffaed8f1e22b4b493b8c235e0b9874d2328adf7af4561e7443753bbca65"
+metafile = true
+
+[[files]]
+file = "mods/terralith.pw.toml"
+hash = "18526528161a0a4db101b7016abd4b1d4645905107cfa42716fe79f043403e82"
 metafile = true
 
 [[files]]
@@ -336,7 +346,7 @@ metafile = true
 
 [[files]]
 file = "mods/variants-cit.pw.toml"
-hash = "f2c462734dad16ffe87f4ae557dbe4a78f7f10760f71f4def4ca98ec8ffb4cef"
+hash = "57cadd4cedd5c81649d7fad8b5891e0602c15edeeb21ca70be7ecb7a01d38380"
 metafile = true
 
 [[files]]
@@ -432,6 +442,11 @@ metafile = true
 [[files]]
 file = "resourcepacks/so-no-head.pw.toml"
 hash = "c6392c6b68dc4038a51448daa4afa603a696ce706ee24cf7a8b9af6e446d1817"
+metafile = true
+
+[[files]]
+file = "resourcepacks/terralith-incendium-nullscape-biomes-names.pw.toml"
+hash = "8b6396a976f68c26f37c29bfd1238c6863ae61df9b02b12324fc0523dd8d5072"
 metafile = true
 
 [[files]]

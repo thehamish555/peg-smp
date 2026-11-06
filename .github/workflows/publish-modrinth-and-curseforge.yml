@@ -70,17 +70,15 @@ jobs:
         run: |
           SUBJECT=$(git log -1 --pretty=format:%s)
 
-          # Body without git trailers (grep wrapped so an empty result doesn't fail the step)
           BODY=$(git log -1 --pretty=format:%b \
                    | { grep -viE '^(Co-authored-by|Signed-off-by):' || true; })
 
           if [ -n "$BODY" ]; then
-            LOG=$(printf '%s\n' "$BODY" | sed 's/$/  /')
+            LOG=$(printf '%s\n\n%s\n' "$SUBJECT" "$BODY" | sed 's/$/  /')
           else
             LOG="$SUBJECT"
           fi
 
-          # Random delimiter so the commit text can't accidentally end the output early
           DELIM="CL_$(openssl rand -hex 8)"
           {
             echo "body<<$DELIM"

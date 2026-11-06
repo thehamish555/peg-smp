@@ -1,0 +1,13 @@
+name = "Terralith Language Fix"
+filename = "Terralith Language Fix 1.1.1.zip"
+side = "client"
+
+[download]
+url = "https://cdn.modrinth.com/data/RfgmXanX/versions/burO4X4u/Terralith%20Language%20Fix%201.1.1.zip"
+hash-format = "sha512"
+hash = "ced5963005d0ddab044bbc0191aeb23b16d08ff4e80d565e56e7c44e52fa615deb04753d8c5e1d6f92b1c578eed1a5642612d671abac374a17134f9a4cd6aa2b"
+
+[update]
+[update.modrinth]
+mod-id = "RfgmXanX"
+version = "burO4X4u"

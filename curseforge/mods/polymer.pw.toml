@@ -1,0 +1,13 @@
+name = "Polymer"
+filename = "polymer-bundled-0.18.7-26.3.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "64f34c2b04f267ea1bf9aa5971811ec870535814"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 9427290
+project-id = 551890

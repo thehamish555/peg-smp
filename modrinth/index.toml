@@ -276,6 +276,11 @@ hash = "7f57f5ead8ad1add28a19f0cbdbdbede14a10e74a6b3e9d8bbd702ae639b9c31"
 metafile = true
 
 [[files]]
+file = "mods/polymer.pw.toml"
+hash = "9c6d5c22717d2c3081c6fa2e1be814e1c79db0872529b2aad0a84d5fb4f8bbb4"
+metafile = true
+
+[[files]]
 file = "mods/puzzles-lib.pw.toml"
 hash = "1d781325cf9001dddce371f093e679e84e93024d62cc28e367343c4cc1d8ca04"
 metafile = true

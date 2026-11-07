@@ -1,12 +1,12 @@
 name = "Peg SMP"
 author = "Hamish555"
-version = "2.4.1"
+version = "2.5.0"
 pack-format = "packwiz:1.1.0"
 
 [index]
 file = "index.toml"
 hash-format = "sha256"
-hash = "e3184a1c2819a6ee8e659a36009883dd94ef0a68008fe82bc0046a24480115d8"
+hash = "a2fd10b802a437d40f5e748711ccdc0d77130cd6787d89f9310222fbe7c90eb1"
 
 [versions]
 fabric = "0.20.1"
